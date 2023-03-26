@@ -23,10 +23,10 @@ namespace Lab02.Views
     {
         private ShowResultsViewModel _viewModel;
 
-        public ShowResultsView(Action gotoResultView)
+        public ShowResultsView(Action a)
         {
             InitializeComponent();
-            DataContext = _viewModel = new ShowResultsViewModel(gotoResultView);
+            DataContext = _viewModel = new ShowResultsViewModel(a);
         }
     }
 }

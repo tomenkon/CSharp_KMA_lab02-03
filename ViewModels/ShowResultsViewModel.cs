@@ -12,15 +12,18 @@ namespace Lab02.ViewModels
     {
         #region Fields
 
-        private Action _gotoFormView;
+        private Action _goBackAction;
         private RelayCommand<object> _returnCommand;
+        private RelayCommand<object> _closeCommand;
 
         #endregion
 
-        public ShowResultsViewModel(Action gotoFormView)
+        public ShowResultsViewModel(Action a)
         {
-            _gotoFormView = gotoFormView;
+            _goBackAction = a;
         }
+
+        public ShowResultsViewModel() { }
 
         #region Properties
 
@@ -32,23 +35,24 @@ namespace Lab02.ViewModels
 
         public string Email => Person.Email;
 
-        public DateTime DateOfBirth => Person.BirthDate;
+        public string DateOfBirth => Person.BirthDate.ToString("d");
 
         public bool IsAdult => Person.IsAdult;
 
-        public string WesternZodiac => Person.WesternZodiac;
+        public string SunSign => Person.SunSign;
 
-        public string ChineseZodiac => Person.ChineseZodiac;
+        public string ChineseSign => Person.ChineseSign;
 
         public bool IsBirthday => Person.IsBirthday;
 
-        public RelayCommand<object> ReturnCommand => _returnCommand ??= new RelayCommand<object>(_ => ReturnToForm());
+        public RelayCommand<object> CloseCommand => _closeCommand ??= new RelayCommand<object>(_ => Environment.Exit(0));
+        public RelayCommand<object> ReturnCommand => _returnCommand ??= new RelayCommand<object>(_ => ReturnBack());
 
         #endregion
 
-        public void ReturnToForm()
+        public void ReturnBack()
         {
-            _gotoFormView?.Invoke();
+            _goBackAction?.Invoke();
         }
     }
 }

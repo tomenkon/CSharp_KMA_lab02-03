@@ -145,7 +145,7 @@ namespace Lab02.ViewModels
                 {
                     Person = new Person(FirstName, LastName, Email, Date);
                     ResultInfo = $"{_person.FirstName}\n{_person.LastName}\n{_person.Email}\n\nBirthday: {_person.BirthDate.Day}." +
-                                 $"{_person.BirthDate.Month}.{_person.BirthDate.Year}\n{_person.ChineseZodiac}\n{_person.WesternZodiac}\n\nIs Adult?: {_person.IsAdult}\n" +
+                                 $"{_person.BirthDate.Month}.{_person.BirthDate.Year}\n{_person.ChineseSign}\n{_person.SunSign}\n\nIs Adult?: {_person.IsAdult}\n" +
                                  $"Is Birthday?: {_person.IsBirthday}";
                     if (_person.IsBirthday)
                     {

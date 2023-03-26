@@ -24,10 +24,10 @@ namespace Lab02.Views
 
         private SignInViewModel _viewModel;
 
-        public SignInView(Action gotoResultView)
+        public SignInView(Action a)
         {
             InitializeComponent();
-            DataContext = _viewModel = new SignInViewModel(gotoResultView);
+            DataContext = _viewModel = new SignInViewModel(a);
         }
     }
 }

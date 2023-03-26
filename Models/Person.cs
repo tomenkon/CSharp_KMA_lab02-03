@@ -83,7 +83,7 @@ namespace Lab02.Models
             }
         }
 
-        public string WesternZodiac
+        public string SunSign
         {
             get
             {
@@ -91,7 +91,7 @@ namespace Lab02.Models
             }
         }
 
-        public string ChineseZodiac
+        public string ChineseSign
         {
             get
             {
@@ -132,11 +132,9 @@ namespace Lab02.Models
             _isAdult = (age >= 18);
             _isBirthday = CheckForBirthday();
             _westernZodiac = ComputeWesternZodiac();
-            _chineseZodiac = ComputeChineseZodiac();
+            _chineseZodiac = CalculateChineseZodiac();
         }
 
-        //with validation of our input fields (for whitespace or just nothing)
-        //these two constructors are useless
         public Person(string firstName, string lastName, string email) :
             this(firstName, lastName, email, DateTime.Today)
         {
@@ -177,14 +175,14 @@ namespace Lab02.Models
             return false;
         }
 
-        public bool IsAnyFieldNull()
+        public bool IsIncomplete()
         {
-            if (!String.IsNullOrWhiteSpace(FirstName) ||
-                !String.IsNullOrWhiteSpace(LastName) ||
-                !String.IsNullOrWhiteSpace(Email)
+            if (String.IsNullOrWhiteSpace(FirstName) ||
+                String.IsNullOrWhiteSpace(LastName) ||
+                String.IsNullOrWhiteSpace(Email)
                )
-                return false;
-            return true;
+                return true;
+            return false;
         }
 
         private string ComputeWesternZodiac()
@@ -272,7 +270,7 @@ namespace Lab02.Models
             return zodiacSign;
         }
 
-        private string ComputeChineseZodiac()
+        private string CalculateChineseZodiac()
         {
             int zodiacYear = (BirthDate.Year - 4) % 12;
             string zodiacSign = "";

@@ -57,21 +57,34 @@ namespace Lab02.ViewModels
         internal async void Proceed()
         {
             IsEnabled = false;
-            Person person = new Person(FirstName, LastName, Email, DateOfBirth);
-            if (person.IsAnyFieldNull())
+            Person person;
+            try
+            {
+                await Task.Delay(1000);
+                person = new Person(FirstName, LastName, Email, DateOfBirth);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                IsEnabled = true;
+                return;
+            }
+
+            if (person.IsIncomplete())
             {
                 IsEnabled = true;
                 return;
             }
+            await Task.Delay(1000);
             StateManager.CurrentPerson = person;
             try
             {
                 await Task.Run(() => { Thread.Sleep(3000); });
                 _gotoResultView?.Invoke();
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(e.Message);
             }
             finally
             {
