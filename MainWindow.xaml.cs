@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab02.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,16 @@ namespace Lab02
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public void GoToResultView()
+        {
+            Content = new ShowResultsView(GoToFormView);
+        }
+
+        public void GoToFormView()
+        {
+            Content = new SignInView(GoToResultView);
         }
     }
 }

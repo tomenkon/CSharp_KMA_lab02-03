@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab02.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,13 @@ namespace Lab02.Views
     /// </summary>
     public partial class SignInView : UserControl
     {
-        public SignInView()
+
+        private SignInViewModel _viewModel;
+
+        public SignInView(Action gotoResultView)
         {
             InitializeComponent();
+            DataContext = _viewModel = new SignInViewModel(gotoResultView);
         }
     }
 }

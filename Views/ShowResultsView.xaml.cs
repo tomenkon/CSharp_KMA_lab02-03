@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab02.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace Lab02.Views
     /// </summary>
     public partial class ShowResultsView : UserControl
     {
-        public ShowResultsView()
+        private ShowResultsViewModel _viewModel;
+
+        public ShowResultsView(Action gotoResultView)
         {
             InitializeComponent();
+            DataContext = _viewModel = new ShowResultsViewModel(gotoResultView);
         }
     }
 }

@@ -177,6 +177,16 @@ namespace Lab02.Models
             return false;
         }
 
+        public bool IsAnyFieldNull()
+        {
+            if (!String.IsNullOrWhiteSpace(FirstName) ||
+                !String.IsNullOrWhiteSpace(LastName) ||
+                !String.IsNullOrWhiteSpace(Email)
+               )
+                return false;
+            return true;
+        }
+
         private string ComputeWesternZodiac()
         {
             Thread.Sleep(1000);

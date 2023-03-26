@@ -7,13 +7,14 @@ using System.Windows;
 
 namespace Lab02.Tools
 {
-    class LoaderManager
+    internal class LoaderManager
     {
         private static readonly object Locker = new object();
         private static LoaderManager _instance;
+        private ILoaderOwner _loaderOwner;
 
 
-        public static LoaderManager Instance
+        internal static LoaderManager Instance
         {
             get
             {
@@ -21,32 +22,29 @@ namespace Lab02.Tools
                     return _instance;
                 lock (Locker)
                 {
-                    return _instance ??= new LoaderManager();
+                    return _instance ?? (_instance = new LoaderManager());
                 }
             }
         }
-
-        private ILoaderOwner _loaderOwner;
 
         private LoaderManager()
         {
         }
 
-        public void Initialize(ILoaderOwner loaderOwner)
+        internal void Initialize(ILoaderOwner loaderOwner)
         {
             _loaderOwner = loaderOwner;
         }
 
-        public void ShowLoader()
+        internal void ShowLoader()
         {
-            _loaderOwner.IsEnabled = false;
             _loaderOwner.LoaderVisibility = Visibility.Visible;
+            _loaderOwner.IsControlEnabled = false;
         }
-
-        public void HideLoader()
+        internal void HideLoader()
         {
-            _loaderOwner.IsEnabled = true;
-            _loaderOwner.LoaderVisibility = Visibility.Collapsed;
+            _loaderOwner.LoaderVisibility = Visibility.Hidden;
+            _loaderOwner.IsControlEnabled = true;
         }
     }
 }

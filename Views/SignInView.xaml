@@ -27,6 +27,6 @@
         <TextBlock Grid.Row="3" Grid.Column="0" Text="Birthday: " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontWeight="Bold"></TextBlock>
         <DatePicker Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" SelectedDate="{Binding PersonObj.Birthday, Mode=TwoWay}"></DatePicker>
 
-        <Button Grid.Column="0" Grid.Row="4" Content="Proceed" FontWeight="Bold" Foreground="#FF033214" Background="#FF9AD798" Margin ="20" Command="{Binding ProceedCommand}"></Button>
+        <Button Grid.Column="0" Grid.Row="4" Content="Proceed" FontSize="18" FontWeight="Bold" Foreground="#FF033214" Background="#FF9AD798" Margin ="20" Command="{Binding ProceedCommand}"></Button>
     </Grid>
 </UserControl>
