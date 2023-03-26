@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Lab02.ViewModels
 {
-    internal class ShowResultsViewModel
+    internal class ResultsViewModel
     {
         #region Fields
 
@@ -18,16 +18,15 @@ namespace Lab02.ViewModels
 
         #endregion
 
-        public ShowResultsViewModel(Action a)
+        public ResultsViewModel(Action a)
         {
             _goBackAction = a;
         }
 
-        public ShowResultsViewModel() { }
 
         #region Properties
 
-        public Person Person => StateManager.CurrentPerson;
+        public Person Person => PersonManager.CurrentPerson;
 
         public string FirstName => Person.FirstName;
 
@@ -46,13 +45,8 @@ namespace Lab02.ViewModels
         public bool IsBirthday => Person.IsBirthday;
 
         public RelayCommand<object> CloseCommand => _closeCommand ??= new RelayCommand<object>(_ => Environment.Exit(0));
-        public RelayCommand<object> ReturnCommand => _returnCommand ??= new RelayCommand<object>(_ => ReturnBack());
+        public RelayCommand<object> ReturnCommand => _returnCommand ??= new RelayCommand<object>(_ => _goBackAction?.Invoke());
 
         #endregion
-
-        public void ReturnBack()
-        {
-            _goBackAction?.Invoke();
-        }
     }
 }

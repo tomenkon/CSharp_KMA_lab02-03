@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace Lab02.Tools
 {
-    internal class StateManager
+    internal class PersonManager
     {
         internal static Person CurrentPerson { get; set; }
 

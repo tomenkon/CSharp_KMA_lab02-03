@@ -50,9 +50,17 @@ namespace Lab02.ViewModels
         }
 
         public RelayCommand<object> ProceedCommand =>
-            _proceedCommand ??= new RelayCommand<object>(_ => Proceed(), BoxesFilled);
+            _proceedCommand ??= new RelayCommand<object>(_ => Proceed(), CanExecute);
 
         #endregion
+
+        #region Methods
+        private bool CanExecute(object obj)
+        {
+            return !String.IsNullOrWhiteSpace(FirstName) &&
+                   !String.IsNullOrWhiteSpace(LastName) &&
+                   !String.IsNullOrWhiteSpace(Email);
+        }
 
         internal async void Proceed()
         {
@@ -60,7 +68,7 @@ namespace Lab02.ViewModels
             Person person;
             try
             {
-                await Task.Delay(1000);
+                await Task.Run(() => { Thread.Sleep(3000); });
                 person = new Person(FirstName, LastName, Email, DateOfBirth);
             }
             catch (Exception e)
@@ -69,14 +77,13 @@ namespace Lab02.ViewModels
                 IsEnabled = true;
                 return;
             }
-
             if (person.IsIncomplete())
             {
                 IsEnabled = true;
                 return;
             }
-            await Task.Delay(1000);
-            StateManager.CurrentPerson = person;
+
+            PersonManager.CurrentPerson = person;
             try
             {
                 await Task.Run(() => { Thread.Sleep(3000); });
@@ -91,14 +98,9 @@ namespace Lab02.ViewModels
                 IsEnabled = true;
             }
         }
+        #endregion
 
-        private bool BoxesFilled(object obj)
-        {
-            return !String.IsNullOrWhiteSpace(FirstName) && !String.IsNullOrWhiteSpace(LastName) &&
-                   !String.IsNullOrWhiteSpace(Email);
-        }
-
-        #region PropChangedImplementation
+        #region PropepryChanged
 
         public event PropertyChangedEventHandler? PropertyChanged;
 

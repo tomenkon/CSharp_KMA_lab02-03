@@ -21,12 +21,12 @@ namespace Lab02.Views
     /// </summary>
     public partial class ShowResultsView : UserControl
     {
-        private ShowResultsViewModel _viewModel;
+        private ResultsViewModel _viewModel;
 
         public ShowResultsView(Action a)
         {
             InitializeComponent();
-            DataContext = _viewModel = new ShowResultsViewModel(a);
+            DataContext = _viewModel = new ResultsViewModel(a);
         }
     }
 }
