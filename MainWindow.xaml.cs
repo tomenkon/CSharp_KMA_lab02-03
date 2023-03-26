@@ -24,16 +24,17 @@ namespace Lab02
         public MainWindow()
         {
             InitializeComponent();
+            ShowSignInView();
         }
 
-        public void GoToResultView()
+        public void ShowResults()
         {
-            Content = new ShowResultsView(GoToFormView);
+            Content = new ShowResultsView(ShowSignInView);
         }
 
-        public void GoToFormView()
+        public void ShowSignInView()
         {
-            Content = new SignInView(GoToResultView);
+            Content = new SignInView(ShowResults);
         }
     }
 }

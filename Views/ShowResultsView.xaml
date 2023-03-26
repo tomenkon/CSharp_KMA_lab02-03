@@ -24,22 +24,22 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="Name: " Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
-        <TextBlock Text="{Binding PersonObj.Name}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" TextWrapping="Wrap"></TextBlock>
+        <TextBlock Text="{Binding FirstName}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" TextWrapping="Wrap"></TextBlock>
         <TextBlock Text="Surname: " Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
-        <TextBlock Text="{Binding PersonObj.Surname}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" TextWrapping="Wrap"></TextBlock>
+        <TextBlock Text="{Binding LastName}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" TextWrapping="Wrap"></TextBlock>
         <TextBlock Text="Email: " Grid.Row="2"  Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
-        <TextBlock Text="{Binding PersonObj.Email}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" TextWrapping="Wrap"></TextBlock>
+        <TextBlock Text="{Binding Email}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" TextWrapping="Wrap"></TextBlock>
         <TextBlock Text="Birthday:" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
-        <TextBlock Text="{Binding PersonObj.BirthdayString}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" TextWrapping="Wrap"></TextBlock>
+        <TextBlock Text="{Binding DateOfBirth}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17" TextWrapping="Wrap"></TextBlock>
 
         <TextBlock Text="Is an Adult? " Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
-        <TextBlock Text="{Binding PersonObj.IsAdult}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
+        <TextBlock Text="{Binding IsAdult}" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
         <TextBlock Text="Western Zodiac:" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
-        <TextBlock Text="{Binding PersonObj.SunSign}" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
+        <TextBlock Text="{Binding WesternZodiac}" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
         <TextBlock Text="Chinese Zodiac:" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
-        <TextBlock Text="{Binding PersonObj.ChineseSign}" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
+        <TextBlock Text="{Binding ChineseZodiac}" Grid.Column="1" Grid.Row="6" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
         <TextBlock Text="Is today the birthday?" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
-        <TextBlock Text="{Binding PersonObj.IsBirthday}" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
+        <TextBlock Text="{Binding IsBirthday}" Grid.Column="1" Grid.Row="7" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="17"></TextBlock>
         <Button Grid.Column="1" Grid.Row="8" Content="OK" Foreground="#FF033214" Background="#FF9AD798" Margin ="20 5"  Command="{Binding BackCommand}"></Button>
     </Grid>
 </UserControl>

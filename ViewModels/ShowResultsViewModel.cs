@@ -36,9 +36,9 @@ namespace Lab02.ViewModels
 
         public bool IsAdult => Person.IsAdult;
 
-        public string SunSign => Person.WesternZodiac;
+        public string WesternZodiac => Person.WesternZodiac;
 
-        public string ChineseSign => Person.ChineseZodiac;
+        public string ChineseZodiac => Person.ChineseZodiac;
 
         public bool IsBirthday => Person.IsBirthday;
 
